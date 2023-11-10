@@ -1,16 +1,20 @@
 export const lightTheme = {
-  bgColor: '#F8F7F4',
-  textColor: '#31302E',
-  borderColor: '1px solid #eaeaea',
+  bgColor: '#F8F6F4',
+  componentBgColor: '#eee',
+  textColor: '#333333',
+  borderColor: '1px solid #ede7f7',
+  toggleColor: '#cbb5dc',
 };
 
 export const darkTheme = {
-  bgColor: '#1E1E22',
-  textColor: '#ccc',
-  borderColor: '1px solid #2x2d33',
+  bgColor: '#000000',
+  componentBgColor: '#2B2730',
+  textColor: '#f0eef6',
+  borderColor: '1px solid #a9b0c0',
+  toggleColor: '#e0cde3',
 };
 
 export const theme = {
-  lightTheme,
   darkTheme,
+  lightTheme,
 };
