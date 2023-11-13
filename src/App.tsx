@@ -1,5 +1,4 @@
 import { GlobalStyle } from './theme/globalStyle';
-import ThemeTogglebutton from './component/ThemeTogglebutton';
 import ThemeProvider from './context/ThemeProvider';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import MainPage from './pages';
@@ -24,7 +23,6 @@ function App() {
             <Route path="/" element={<MainPage />} />
           </Routes>
         </BrowserRouter>
-        {/* <ThemeTogglebutton /> */}
       </ThemeProvider>
     </QueryClientProvider>
   );

@@ -1,7 +1,7 @@
-import { useWheatherInfo } from '../../query/wheather';
+import { useWeatherInfo } from '../../query/weather';
 
 export default function WeatherBlock() {
-  const { data } = useWheatherInfo();
+  const { data } = useWeatherInfo();
   console.log(data);
   return <></>;
 }

@@ -1,7 +1,7 @@
 import { useTheme } from '../../hooks/useTheme';
 import { Wrapper } from './styled';
 
-function ToggleTheme() {
+function ThemeToggleButton() {
   const [themeMode, toggleTheme] = useTheme();
 
   return (
@@ -10,4 +10,4 @@ function ToggleTheme() {
     </Wrapper>
   );
 }
-export default ToggleTheme;
+export default ThemeToggleButton;
