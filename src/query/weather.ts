@@ -13,7 +13,7 @@ export const useWeatherInfo = () => {
     queryKey: ['weatherInfo'],
     queryFn: async () => {
       return fetch(
-        `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=100&dataType=JSON&base_date=${formattedDate}&base_time=${nearTime}&nx=${nx}&ny=${ny}`
+        `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${formattedDate}&base_time=${nearTime}&nx=${nx}&ny=${ny}`
       ).then((res) => res.json());
     },
   });

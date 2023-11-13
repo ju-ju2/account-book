@@ -20,21 +20,27 @@ export const getTime = () => {
   const minutes = dates.getMinutes();
   const seconds = dates.getSeconds();
 
-  const year = dates.getFullYear().toString(); // 뒤에서 두 자리만 가져오기
-  const month = (dates.getMonth() + 1).toString().padStart(2, '0');
-  const date = dates.getDate().toString().padStart(2, '0');
+  const oneDayAgo = new Date(dates.setDate(dates.getDate() - 1)); // 어제
+  console.log(
+    '어제 : ',
+    oneDayAgo.getFullYear().toString(),
+    (oneDayAgo.getMonth() + 1).toString().padStart(2, '0'),
+    oneDayAgo.getDate().toString().padStart(2, '0')
+  );
+
+  const weatherApiDay = hours === 0 ? oneDayAgo : dates; // 00시 경우 이전 날 데이터 필요
+
+  const year = weatherApiDay.getFullYear().toString(); // 뒤에서 두 자리만 가져오기
+  const month = (weatherApiDay.getMonth() + 1).toString().padStart(2, '0');
+  const date = weatherApiDay.getDate().toString().padStart(2, '0');
   const formattedDate = `${year}${month}${date}`;
 
-  const timeSlots = ['02', '05', '08', '11', '14', '17', '20', '23'];
-  let nearTime = '';
-
-  for (const time of timeSlots) {
-    if (hours < Number(time) || (hours === Number(time) && minutes < 0)) {
-      // 현재 시간 이후에 다음으로 올 시간 찾기
-      nearTime = `${time}00`;
-      break;
-    }
-  }
+  const nearTime =
+    hours === 0 && minutes < 45
+      ? '2330'
+      : minutes > 45
+      ? `${hours}30`
+      : `${hours - 1}30`;
 
   const weekArray = [
     '일요일',
