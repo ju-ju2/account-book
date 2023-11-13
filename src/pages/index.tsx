@@ -1,6 +1,7 @@
 import ThemeTogglebutton from '../component/ThemeTogglebutton';
 import TimeBlock from '../component/TimeBlock';
 import WeatherBlock from '../component/WeatherBlock';
+import { WeatherWrapper } from './styled';
 
 export default function MainPage() {
   const ServiceKey = process.env.REACT_APP_API_WEATHER_KEY;
@@ -8,9 +9,10 @@ export default function MainPage() {
   return (
     <>
       <ThemeTogglebutton />
-      <TimeBlock />
-      <WeatherBlock />
-      dd
+      <WeatherWrapper>
+        <TimeBlock />
+        <WeatherBlock />
+      </WeatherWrapper>
     </>
   );
 }
