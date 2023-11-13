@@ -21,12 +21,6 @@ export const getTime = () => {
   const seconds = dates.getSeconds();
 
   const oneDayAgo = new Date(dates.setDate(dates.getDate() - 1)); // 어제
-  console.log(
-    '어제 : ',
-    oneDayAgo.getFullYear().toString(),
-    (oneDayAgo.getMonth() + 1).toString().padStart(2, '0'),
-    oneDayAgo.getDate().toString().padStart(2, '0')
-  );
 
   const weatherApiDay = hours === 0 ? oneDayAgo : dates; // 00시 경우 이전 날 데이터 필요
 
@@ -73,4 +67,29 @@ export const getTime = () => {
   };
 
   return { time, calendar, formattedDate, nearTime };
+};
+
+export const getLocation = () => {
+  let lat = 0;
+  let lng = 0;
+  if (navigator.geolocation) {
+    //   // GPS를 지원하면
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+      },
+      function (error) {
+        console.error(error);
+      },
+      {
+        enableHighAccuracy: false,
+        maximumAge: 0,
+        timeout: Infinity,
+      }
+    );
+  } else {
+    alert('GPS를 지원하지 않습니다');
+  }
+  return { lat, lng };
 };
