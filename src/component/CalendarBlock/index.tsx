@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Wrapper } from './styled';
 import { addMonths, subMonths } from 'date-fns';
 import Header from './Header';
+import Week from './Week';
 import Days from './Days';
 
 export default function CalendarBlock() {
@@ -14,9 +15,9 @@ export default function CalendarBlock() {
   const nextMonth = () => {
     setCurrentMonth(addMonths(currentMonth, 1));
   };
-  //   const onDateClick = (day) => {
-  //     setSelectedDate(day);
-  //   };
+  const onDateClick = (day: Date) => {
+    setSelectedDate(day);
+  };
   return (
     <Wrapper>
       <Header
@@ -24,7 +25,12 @@ export default function CalendarBlock() {
         prevMonth={prevMonth}
         nextMonth={nextMonth}
       />
-      <Days />
+      <Week />
+      <Days
+        currentMonth={currentMonth}
+        selectedDate={selectedDate}
+        onDateClick={onDateClick}
+      />
     </Wrapper>
   );
 }
