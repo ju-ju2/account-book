@@ -78,3 +78,55 @@ export const getLocation = () => {
   }
   return { lat, lng };
 };
+
+export const rainStatusConverter = (rainData: string) => {
+  let rain = '';
+
+  switch (rainData) {
+    case '0':
+      rain = '강수 없음';
+      break;
+    case '1':
+      rain = '비';
+      break;
+    case '2':
+      rain = '비/눈';
+      break;
+    case '3':
+      rain = '눈';
+      break;
+    case '5':
+      rain = '빗방울';
+      break;
+    case '6':
+      rain = '빗방울/눈날림';
+      break;
+    case '7':
+      rain = '눈날림';
+      break;
+    default:
+      rain = '알 수 없음';
+  }
+
+  return rain;
+};
+
+export const skyStatusConverter = (skyData: string) => {
+  let sky = '';
+
+  switch (skyData) {
+    case '1':
+      sky = '맑음 ☀️';
+      break;
+    case '3':
+      sky = '구름많음 ⛅️';
+      break;
+    case '4':
+      sky = '흐림 ☁️';
+      break;
+    default:
+      sky = '알 수 없음';
+  }
+
+  return sky;
+};
