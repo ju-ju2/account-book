@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: flex-end;
   gap: 15px;
-  padding: 20px;
+  margin-bottom: 20px;
 `;
 
 export const Col = styled.div`

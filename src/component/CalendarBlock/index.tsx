@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Wrapper } from './styled';
 import { addMonths, subMonths } from 'date-fns';
 import Header from './Header';
+import Days from './Days';
 
 export default function CalendarBlock() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -23,6 +24,7 @@ export default function CalendarBlock() {
         prevMonth={prevMonth}
         nextMonth={nextMonth}
       />
+      <Days />
     </Wrapper>
   );
 }
