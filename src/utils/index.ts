@@ -1,26 +1,11 @@
-// interface GetTimeProps {
-//   time: {
-//     hour: string;
-//     minute: string;
-//     seconds: string;
-//     isNoon: string;
-//   };
-//   calendar: {
-//     month: string;
-//     date: string;
-//     week: string;
-//   };
-//   formattedDate: string;
-//   nearTime: string;
-// }
-
 export const getTime = () => {
   const dates = new Date();
   const hours = dates.getHours();
   const minutes = dates.getMinutes();
   const seconds = dates.getSeconds();
 
-  const oneDayAgo = new Date(dates.setDate(dates.getDate() - 1)); // 어제
+  const oneDayAgo = new Date(dates); // 새로운 Date 객체를 생성하여 현재 날짜와 시간을 복사
+  oneDayAgo.setDate(dates.getDate() - 1); // 어제의 날짜로 설정
 
   const weatherApiDay = hours === 0 ? oneDayAgo : dates; // 00시 경우 이전 날 데이터 필요
 
