@@ -58,14 +58,14 @@ export const getLocation = () => {
   let lat = 0;
   let lng = 0;
   if (navigator.geolocation) {
-    //   // GPS를 지원하면
+    // GPS를 지원하면
     navigator.geolocation.getCurrentPosition(
       function (position) {
         lat = position.coords.latitude;
         lng = position.coords.longitude;
       },
       function (error) {
-        console.error(error);
+        console.log('error : ', error.message);
       },
       {
         enableHighAccuracy: false,
@@ -74,7 +74,7 @@ export const getLocation = () => {
       }
     );
   } else {
-    alert('GPS를 지원하지 않습니다');
+    console.log('GPS를 지원하지 않습니다');
   }
   return { lat, lng };
 };
