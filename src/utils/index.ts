@@ -18,8 +18,8 @@ export const getTime = () => {
     hours === 0 && minutes < 45
       ? '2330'
       : minutes > 45
-      ? `${hours}30`
-      : `${hours - 1}30`;
+      ? `${hours.toString().padStart(2, '0')}30`
+      : `${(hours - 1).toString().padStart(2, '0')}30`;
 
   const weekArray = [
     '일요일',

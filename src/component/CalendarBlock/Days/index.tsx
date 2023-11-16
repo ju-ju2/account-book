@@ -10,7 +10,7 @@ import {
   startOfWeek,
 } from 'date-fns';
 import {
-  DayCell,
+  DayRow,
   Disabled,
   NotValid,
   Selected,
@@ -67,7 +67,7 @@ export default function Days({
       );
       day = addDays(day, 1);
     }
-    rows.push(<DayCell key={Number(day)}>{days}</DayCell>);
+    rows.push(<DayRow key={Number(day)}>{days}</DayRow>);
     days = [];
   }
   return <WeekCol>{rows}</WeekCol>;
