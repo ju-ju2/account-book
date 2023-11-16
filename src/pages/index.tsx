@@ -1,18 +1,23 @@
+import CalendarBlock from '../component/CalendarBlock';
 import ThemeTogglebutton from '../component/ThemeTogglebutton';
 import TimeBlock from '../component/TimeBlock';
 import WeatherBlock from '../component/WeatherBlock';
-import { WeatherWrapper } from './styled';
+import { Col, Row, WeatherWrapper } from './styled';
 
 export default function MainPage() {
-  const ServiceKey = process.env.REACT_APP_API_WEATHER_KEY;
-  console.log(ServiceKey);
   return (
     <>
       <ThemeTogglebutton />
-      <WeatherWrapper>
-        <TimeBlock />
-        <WeatherBlock />
-      </WeatherWrapper>
+      <Row>
+        <Col>
+          <WeatherWrapper>
+            <TimeBlock />
+            <WeatherBlock />
+          </WeatherWrapper>
+          {/* 합산한 가격 자리 */}
+        </Col>
+        <CalendarBlock></CalendarBlock>
+      </Row>
     </>
   );
 }

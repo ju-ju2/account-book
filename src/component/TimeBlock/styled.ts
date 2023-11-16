@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 300px;
+  min-width: 300px;
   height: 150px;
   background-color: ${({ theme }) => theme.componentBgColor};
   border: ${({ theme }) => theme.borderColor};
