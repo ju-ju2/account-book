@@ -3,6 +3,7 @@ import ThemeProvider from './context/ThemeProvider';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import MainPage from './pages';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Login from './pages/Login';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,7 +21,8 @@ function App() {
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/main" element={<MainPage />} />
+            <Route path="/" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
