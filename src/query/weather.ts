@@ -1,13 +1,14 @@
 import { useQuery } from 'react-query';
-import { getLocation, getTime } from '../utils';
+import { getTime } from '../utils';
 import { dfs_xy_conv } from '../utils/forecastXY';
+import { useMyLocation } from '../hooks/useLocation';
 
 export const useWeatherInfo = () => {
   const { formattedDate, nearTime } = getTime();
 
   const serviceKey = process.env.REACT_APP_API_WEATHER_KEY;
 
-  const { lat, lng } = getLocation();
+  const { lat, lng } = useMyLocation();
   // 위치를 알 수 없을 때 0
 
   const rs = dfs_xy_conv('toXY', lat, lng);

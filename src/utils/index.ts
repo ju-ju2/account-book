@@ -54,31 +54,6 @@ export const getTime = () => {
   return { time, calendar, formattedDate, nearTime };
 };
 
-export const getLocation = () => {
-  let lat = 0;
-  let lng = 0;
-  if (navigator.geolocation) {
-    // GPS를 지원하면
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        lat = position.coords.latitude;
-        lng = position.coords.longitude;
-      },
-      function (error) {
-        console.log('error : ', error.message);
-      },
-      {
-        enableHighAccuracy: false,
-        maximumAge: 0,
-        timeout: Infinity,
-      }
-    );
-  } else {
-    console.log('GPS를 지원하지 않습니다');
-  }
-  return { lat, lng };
-};
-
 export const rainStatusConverter = (rainData: string) => {
   let rain = '';
 
