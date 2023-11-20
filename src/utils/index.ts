@@ -1,3 +1,5 @@
+import { TAG_TYPE } from './constants';
+
 export const getTime = () => {
   const dates = new Date();
   const hours = dates.getHours();
@@ -104,4 +106,15 @@ export const skyStatusConverter = (skyData: string) => {
   }
 
   return sky;
+};
+
+export const getTagTitle = (value: TAG_TYPE) => {
+  const tagType = {
+    [TAG_TYPE.FOOD]: '식품',
+    [TAG_TYPE.SHOP]: '쇼핑',
+    [TAG_TYPE.HOBBY]: '여가',
+    [TAG_TYPE.ETC]: '기타',
+  };
+
+  return tagType[value];
 };
