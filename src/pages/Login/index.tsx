@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup, User } from 'firebase/auth';
 import { auth } from '../../libs/firebase';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [userData, setUserData] = useState<User>();
+  const navigate = useNavigate();
 
   function handleGoogleLogin() {
     const provider = new GoogleAuthProvider(); // provider를 구글로 설정
@@ -11,6 +13,7 @@ export default function Login() {
       .then((data) => {
         setUserData(data.user); // user data 설정
         console.log(data.user); // console로 들어온 데이터 표시
+        navigate('/main');
       })
       .catch((err) => {
         console.log(err);
