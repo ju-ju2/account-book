@@ -126,3 +126,7 @@ export const tagContentConveter = (text: string) => {
 export const tagPriceConveter = (price: number) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
+
+export const test = () => {
+  console.log('깃허브 테스트');
+};
