@@ -27,12 +27,29 @@ export const Wrapper = styled.div`
 
   border-radius: 8px;
   padding: 15px;
+
+  display: flex;
+  flex-direction: column;
 `;
 
-export const CloseBtn = styled.div`
+export const BtnWrapper = styled.div`
   position: absolute;
   top: 15px;
   right: 15px;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const ModifyBtn = styled.div`
+  cursor: pointer;
+`;
+export const CloseBtn = styled.div`
+  /* position: absolute;
+  top: 15px;
+  right: 15px; */
   cursor: pointer;
 `;
 
@@ -41,16 +58,16 @@ export const Title = styled.div`
   margin-bottom: 30px;
 `;
 
-export const ButtonWrapper = styled.div`
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  margin-top: 15px;
+// export const ButtonWrapper = styled.div`
+//   position: absolute;
+//   bottom: 15px;
+//   right: 15px;
+//   margin-top: 15px;
 
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+// `;
 
 export const OkBtn = styled.button`
   background-color: #1677ff;
@@ -83,13 +100,25 @@ export const TagItem = styled.div`
 
 export const Contents = styled.div`
   width: 230px;
-  background-color: green;
   font-size: 14px;
 `;
 
 export const Price = styled.div`
   width: 70px;
-  background-color: red;
   margin-left: auto;
   text-align: end;
+  font-size: 14px;
+`;
+
+export const Border = styled.div`
+  width: 100%;
+  border-top: 1px solid #d9d9d9;
+  margin-top: auto;
+`;
+
+export const DailyTotalPrice = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+  text-align: end;
+  margin-top: 10px;
 `;

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import {
-  ButtonWrapper,
+  // ButtonWrapper,
   Wrapper,
   Title,
   Container,
@@ -11,6 +11,10 @@ import {
   TagItem,
   Contents,
   Price,
+  Border,
+  ModifyBtn,
+  BtnWrapper,
+  DailyTotalPrice,
 } from './styled';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import Tag from '../Tag';
@@ -44,29 +48,45 @@ export default function Modal({
   return (
     <Container>
       <Wrapper ref={modalRef}>
-        <CloseBtn onClick={() => setModalOpen(false)}>X</CloseBtn>
+        <BtnWrapper>
+          <ModifyBtn>수정</ModifyBtn>
+          <CloseBtn onClick={() => setModalOpen(false)}>X</CloseBtn>
+        </BtnWrapper>
         <Title>{title}</Title>
         {/* 소비 내역 */}
 
         <ListWrapper>
-          <TagItem>
-            <Tag />
-            <Contents>
-              {tagContentConveter(
-                '마라탕 주문을 해보겠습니다 하하하 오늘은 월요일 이니까요'
-              )}
-            </Contents>
-            <Price>{tagPriceConveter(15000)}</Price>
-          </TagItem>
-          <TagItem>
-            <Tag type={TAG_TYPE.FOOD} />
-          </TagItem>
+          {tempData.data.map((item) => (
+            <TagItem>
+              <Tag type={item.type} />
+              <Contents>{tagContentConveter(item.content)}</Contents>
+              <Price>{tagPriceConveter(item.price)}</Price>
+            </TagItem>
+          ))}
         </ListWrapper>
-        <ButtonWrapper>
-          <OkBtn onClick={onOk}>{onOkText}</OkBtn>
-          <CancelBtn onClick={onCancel}>{onCancelText}</CancelBtn>
-        </ButtonWrapper>
+        <Border />
+        <DailyTotalPrice>총 {tagPriceConveter(300000)}</DailyTotalPrice>
+        {/* <ButtonWrapper> */}
+        {/* <OkBtn onClick={onOk}>{onOkText}</OkBtn> */}
+        {/* <CancelBtn onClick={onCancel}>{onCancelText}</CancelBtn> */}
+        {/* </ButtonWrapper> */}
       </Wrapper>
     </Container>
   );
 }
+
+interface DataDetailProps {
+  type: string;
+  content: string;
+  price: number;
+}
+interface DataProps {
+  data: DataDetailProps[];
+}
+const tempData: DataProps = {
+  data: [
+    { type: 'food', content: '마라머거 마라탕', price: 9000 },
+    { type: 'shop', content: '어깨 대칭을 위한 백팩', price: 32000 },
+    { type: 'hobby', content: '헬린이 헬스시작', price: 300000 },
+  ],
+};
