@@ -10,6 +10,7 @@ import {
   startOfWeek,
 } from 'date-fns';
 import {
+  CircleTagWrapper,
   DayRow,
   Disabled,
   NotValid,
@@ -30,6 +31,7 @@ import {
   deleteField,
 } from 'firebase/firestore';
 import { firebaseApp } from '../../../libs/firebase';
+import CircleTag from '../../CircleTag';
 
 interface DaysType {
   currentMonth: Date;
@@ -124,11 +126,16 @@ export default function Days({
       days.push(
         <IsValidDiv key={Number(day)} onClick={() => onDateClick(cloneDay)}>
           <IsValidSpan>{formattedDate}</IsValidSpan>
-          <button onClick={onClickFetch}>받아오기</button>
+          {/* <button onClick={onClickFetch}>받아오기</button>
           <button onClick={onClickModify}>등록 / 수정하기</button>
           <button onClick={onClickModifySome}>일부수정하기</button>
           <button onClick={onClickDeleteDoc}>삭제하기</button>
-          <button onClick={onClickDeleteField}>일부 삭제하기</button>
+          <button onClick={onClickDeleteField}>일부 삭제하기</button> */}
+          <CircleTagWrapper>
+            {tempTagData.map((item) => (
+              <CircleTag type={item} />
+            ))}
+          </CircleTagWrapper>
         </IsValidDiv>
       );
       day = addDays(day, 1);
@@ -138,3 +145,5 @@ export default function Days({
   }
   return <WeekCol>{rows}</WeekCol>;
 }
+
+const tempTagData = ['food', 'shop', 'etc'];

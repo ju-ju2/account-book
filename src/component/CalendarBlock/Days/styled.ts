@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 export const Disabled = styled.div`
-  /* background-color: red; */
   width: calc(100% / 7);
   height: 90px;
   padding: 5px;
@@ -11,7 +10,6 @@ export const Disabled = styled.div`
 `;
 
 export const NotValid = styled.div`
-  /* background-color: green; */
   width: calc(100% / 7);
   height: 90px;
   padding: 5px;
@@ -20,7 +18,6 @@ export const NotValid = styled.div`
 `;
 
 export const Valid = styled.div`
-  /* background-color: pink; */
   width: calc(100% / 7);
   height: 90px;
   padding: 5px;
@@ -32,16 +29,17 @@ export const Valid = styled.div`
   }
 `;
 
-export const TextValid = styled.span`
-  /* color: yellow; */
+export const TextValid = styled.p`
+  margin-bottom: 7px;
 `;
-export const TextNotValid = styled.span`
+
+export const TextNotValid = styled.p`
   color: #d9d9d9;
+  margin-bottom: 7px;
 `;
 
 export const WeekCol = styled.div`
   display: flex;
-  /* width: calc(100% / 7); */
   flex-direction: column;
   width: 100%;
   border-left: 1px solid;
@@ -49,10 +47,13 @@ export const WeekCol = styled.div`
 `;
 
 export const DayRow = styled.div`
-  /* width: calc(100% / 7); */
-  /* height: 100px; */
-  /* padding: 5px; */
   font-size: 12px;
   display: flex;
   justify-content: space-around;
+`;
+
+export const CircleTagWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
