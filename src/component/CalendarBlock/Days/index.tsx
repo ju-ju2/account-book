@@ -13,7 +13,6 @@ import {
   DayRow,
   Disabled,
   NotValid,
-  Selected,
   TextNotValid,
   TextValid,
   Valid,
@@ -111,8 +110,6 @@ export default function Days({
         !isSameMonth(day, monthStart) ||
         format(currentMonth, 'M') !== format(day, 'M') // 이번달에 속한 일이 아닐 경우
           ? Disabled
-          : isSameDay(day, selectedDate) // 선택된 날짜
-          ? Selected
           : isAfter(day, new Date()) // 오늘 이후의 날짜
           ? NotValid
           : Valid;

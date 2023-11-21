@@ -9,14 +9,7 @@ export const Disabled = styled.div`
   border-bottom: 1px solid;
   pointer-events: none;
 `;
-export const Selected = styled.div`
-  background-color: rgba(253, 141, 20, 0.2);
-  width: calc(100% / 7);
-  height: 90px;
-  padding: 5px;
-  border-right: 1px solid;
-  border-bottom: 1px solid;
-`;
+
 export const NotValid = styled.div`
   /* background-color: green; */
   width: calc(100% / 7);
@@ -25,6 +18,7 @@ export const NotValid = styled.div`
   border-right: 1px solid;
   border-bottom: 1px solid;
 `;
+
 export const Valid = styled.div`
   /* background-color: pink; */
   width: calc(100% / 7);
@@ -32,7 +26,12 @@ export const Valid = styled.div`
   padding: 5px;
   border-right: 1px solid;
   border-bottom: 1px solid;
+
+  &:hover {
+    background-color: rgba(253, 141, 20, 0.2);
+  }
 `;
+
 export const TextValid = styled.span`
   /* color: yellow; */
 `;
