@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 export const Disabled = styled.div`
   width: calc(100% / 7);
   height: 90px;
+  display: flex;
+  flex-direction: column;
   padding: 5px;
   border-right: 1px solid;
   border-bottom: 1px solid;
@@ -12,6 +14,8 @@ export const Disabled = styled.div`
 export const NotValid = styled.div`
   width: calc(100% / 7);
   height: 90px;
+  display: flex;
+  flex-direction: column;
   padding: 5px;
   border-right: 1px solid;
   border-bottom: 1px solid;
@@ -20,6 +24,8 @@ export const NotValid = styled.div`
 export const Valid = styled.div`
   width: calc(100% / 7);
   height: 90px;
+  display: flex;
+  flex-direction: column;
   padding: 5px;
   border-right: 1px solid;
   border-bottom: 1px solid;
@@ -56,4 +62,11 @@ export const CircleTagWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
+`;
+
+export const DailyPrice = styled.p`
+  font-weight: bold;
+  color: #d9d9d9;
+  margin-top: auto;
+  text-align: end;
 `;

@@ -11,6 +11,7 @@ import {
 } from 'date-fns';
 import {
   CircleTagWrapper,
+  DailyPrice,
   DayRow,
   Disabled,
   NotValid,
@@ -32,6 +33,7 @@ import {
 } from 'firebase/firestore';
 import { firebaseApp } from '../../../libs/firebase';
 import CircleTag from '../../CircleTag';
+import { tagPriceConveter } from '../../../utils';
 
 interface DaysType {
   currentMonth: Date;
@@ -136,6 +138,7 @@ export default function Days({
               <CircleTag type={item} />
             ))}
           </CircleTagWrapper>
+          <DailyPrice>{tagPriceConveter(-16000)}</DailyPrice>
         </IsValidDiv>
       );
       day = addDays(day, 1);
@@ -146,4 +149,5 @@ export default function Days({
   return <WeekCol>{rows}</WeekCol>;
 }
 
-const tempTagData = ['food', 'shop', 'etc'];
+// const tempTagData = ['food', 'shop', 'etc'];
+const tempTagData = ['food', 'shop', 'hobby', 'etc'];
