@@ -108,8 +108,8 @@ export const skyStatusConverter = (skyData: string) => {
   return sky;
 };
 
-export const getTagTitle = (value: TAG_TYPE) => {
-  const tagType = {
+export const getTagTitle = (value: string) => {
+  const tagType: { [key: string]: string } = {
     [TAG_TYPE.FOOD]: '식품',
     [TAG_TYPE.SHOP]: '쇼핑',
     [TAG_TYPE.HOBBY]: '여가',

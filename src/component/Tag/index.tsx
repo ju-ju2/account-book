@@ -3,7 +3,7 @@ import { TAG_TYPE } from '../../utils/constants';
 import { TagWrapper } from './styled';
 
 interface TagProps {
-  type?: TAG_TYPE;
+  type?: string;
 }
 
 export default function Tag({ type = TAG_TYPE.ETC }: TagProps) {
